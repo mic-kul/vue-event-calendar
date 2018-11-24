@@ -4,8 +4,8 @@ export default {
     monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
-    dayEventsTitle: 'All Events',
-    notHaveEvents: 'Not Have Events'
+    dayEventsTitle: 'Available Dates & Times',
+    notHaveEvents: 'No dates available'
   },
   zh: {
     dayNames: ["日", "一", "二", "三", "四", "五", "六"],
