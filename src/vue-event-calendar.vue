@@ -153,40 +153,7 @@ export default {
 @small-padding: 10px;
 
 @icon-border-size: 1px;
-@media screen and (min-width: 768px) {
-  .__vev_calendar-wrapper{
-    display: flex;
-    .cal-wrapper{
-      flex: 0 460px;
-      padding: 20px 50px;
-      .date-num{
-        line-height: 50px;
-      }
-    }
-    .events-wrapper{
-      background-color: @base-orange;
-      color: @white;
-      padding: 40px 45px;
-      flex: 600px;
-    }
-  }
-}
-@media screen and (max-width: 767px) {
-  .__vev_calendar-wrapper{
-    .cal-wrapper{
-      width: 100%;
-      padding: 10px 5px;
-      .date-num{
-        line-height: 42px;
-      }
-    }
-    .events-wrapper{
-      width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-    }
-  }
-}
+
 .__vev_calendar-wrapper{
   // position: relative;
   // overflow: hidden;
@@ -404,4 +371,43 @@ export default {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .__vev_calendar-wrapper{
+    // display: block;
+    // flex-direction: column;
+    .cal-wrapper{
+      flex: 0 460px;
+      padding: 20px 50px;
+      .date-num{
+        line-height: 50px;
+      }
+    }
+    .events-wrapper{
+      background-color: @base-orange;
+      color: @white;
+      padding: 40px 45px;
+      flex: 600px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .__vev_calendar-wrapper{
+    // display: block;
+    flex-direction: column;
+    .cal-wrapper {
+      padding: 10px 5px;
+      // flex: 0 0 100%;
+      // flex: 1;
+      .date-num{
+        line-height: 42px;
+      }
+    }
+    .events-wrapper{
+      // flex: 0 0 100%;
+      // flex: 1;
+      margin-top: 10px;
+      padding: 10px;
+    }
+  }
+}
 </style>
