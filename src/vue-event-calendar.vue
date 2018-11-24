@@ -158,7 +158,7 @@ export default {
   // position: relative;
   // overflow: hidden;
   // width: 100%;
-  // display: flex;
+  display: flex;
   *{
     box-sizing: border-box;
   }
