@@ -390,9 +390,10 @@ export default {
     }
   }
 }
+
 @media screen and (max-width: 767px) {
   .__vev_calendar-wrapper{
-    // display: block;
+    display: block;
     flex-direction: column;
     .cal-wrapper {
       padding: 10px 5px;
