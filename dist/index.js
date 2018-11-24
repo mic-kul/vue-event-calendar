@@ -206,8 +206,8 @@ module.exports = function normalizeComponent (
     monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     format: 'MM/yyyy',
     fullFormat: 'dd/MM/yyyy',
-    dayEventsTitle: 'All Events',
-    notHaveEvents: 'Not Have Events'
+    dayEventsTitle: 'Available Dates & Times',
+    notHaveEvents: 'No dates available'
   },
   zh: {
     dayNames: ["日", "一", "二", "三", "四", "五", "六"],
@@ -289,6 +289,22 @@ module.exports = function normalizeComponent (
     dayEventsTitle: 'Alla händelser',
     notHaveEvents: 'Inga händelser'
   },
+  no: {
+    dayNames: ["Søn", "Man", "Tir", "Ons", "Tor", "Fre", "Lør"],
+    monthNames: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Alle hendelser',
+    notHaveEvents: 'Ingen hendelser'
+  },
+  'no-nn': {
+    dayNames: ["Søn", "Mån", "Tys", "Ons", "Tor", "Fre", "Lau"],
+    monthNames: ["Januar", "Februar", "Mars", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Desember"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'Alle hendinger',
+    notHaveEvents: 'Ingen hendinger'
+  },
   de: {
     dayNames: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
     monthNames: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
@@ -304,6 +320,30 @@ module.exports = function normalizeComponent (
     fullFormat: 'dd/MM/yyyy',
     dayEventsTitle: 'Tất cả sự kiện',
     notHaveEvents: 'Không có sự kiện nào'
+  },
+  ua: {
+    dayNames: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    monthNames: ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"],
+    format: 'MM.yyyy',
+    fullFormat: 'dd.MM.yyyy',
+    dayEventsTitle: 'Усі події',
+    notHaveEvents: 'Події відсутні'
+  },
+  th: {
+    dayNames: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+    monthNames: ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+    format: 'MM/yyyy',
+    fullFormat: 'dd/MM/yyyy',
+    dayEventsTitle: 'เหตุการณ์',
+    notHaveEvents: 'ไม่มีเหตุการณใดๆ'
+  },
+  hu: {
+    dayNames: ["Hé", "Ke", "Sze", "Сs", "Pé", "Szo", "Va"],
+    monthNames: ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
+    format: 'yyyy MM',
+    fullFormat: 'yyyy.MM.dd',
+    dayEventsTitle: 'Események',
+    notHaveEvents: 'Nincs esemény'
   }
 });
 
@@ -428,6 +468,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -445,6 +488,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   props: {
     title: String,
+    calDesc: {
+      type: String,
+      required: false
+    },
     dayEvents: {
       type: Object,
       required: true
@@ -533,6 +580,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -547,6 +597,10 @@ var inBrowser = typeof window !== 'undefined';
   },
 
   props: {
+    calLeftTitle: {
+      type: String,
+      required: false
+    },
     events: {
       type: Array,
       required: true
@@ -661,6 +715,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -685,6 +741,8 @@ var inBrowser = typeof window !== 'undefined';
 
   props: {
     title: String,
+    calLeftTitle: String,
+    calDesc: String,
     events: {
       type: Array,
       required: true,
@@ -976,12 +1034,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "events-wrapper",
     style: (_vm.bgColor)
-  }, [_c('h2', {
+  }, [_c('div', {
+    staticClass: "cal-desc"
+  }, [_vm._v("\n    " + _vm._s(_vm.calDesc) + "\n  ")]), _vm._v(" "), _c('h2', {
     staticClass: "date"
   }, [_vm._v("\n    " + _vm._s(_vm.dayEventsTitle) + "\n  ")]), _vm._v(" "), _c('div', {
     staticClass: "cal-events"
   }, [_vm._t("default", _vm._l((_vm.events), function(event, index) {
     return _c('div', {
+      key: index,
       staticClass: "event-item"
     }, [_c('cal-event-item', {
       attrs: {
@@ -1004,7 +1065,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "events": _vm.events,
       "calendar": _vm.calendarOptions,
-      "selectedDay": _vm.selectedDayEvents.date
+      "selectedDay": _vm.selectedDayEvents.date,
+      "calLeftTitle": _vm.calLeftTitle
     },
     on: {
       "cur-day-changed": _vm.handleChangeCurDay,
@@ -1014,6 +1076,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "title": _vm.title,
       "dayEvents": _vm.selectedDayEvents,
+      "calDesc": _vm.calDesc,
       "locale": _vm.calendarOptions.options.locale,
       "color": _vm.calendarOptions.options.color
     }
@@ -1030,6 +1093,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "cal-wrapper"
   }, [_c('div', {
+    staticClass: "cal-top"
+  }, [_c('h1', [_vm._v(_vm._s(_vm.calLeftTitle))])]), _vm._v(" "), _c('div', {
     staticClass: "cal-header"
   }, [_c('div', {
     staticClass: "l",

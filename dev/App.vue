@@ -4,6 +4,8 @@
     <h2 class="t-center">Default template</h2>
     <vue-event-calendar
       :events="demoEvents"
+      :calLeftTitle="calLeftTitle"
+      :calDesc="calDesc"
       @day-changed="handleDayChanged"
       @month-changed="handleMonthChanged"
     ></vue-event-calendar>
@@ -25,6 +27,8 @@ export default {
   name: 'app',
   data () {
     return {
+      calLeftTitle: "calLeftTitle",
+      calDesc: "calDesc",
       demoEvents: [{
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
         title: 'Title-1',
