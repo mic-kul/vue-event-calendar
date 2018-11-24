@@ -1,5 +1,8 @@
 <template>
   <div class="cal-wrapper">
+    <div class="cal-top">
+      <h1>{{calLeftTitle}}</h1>
+    </div>
     <div class="cal-header">
       <div class="l" @click="preMonth"><div class="arrow-left icon">&nbsp;</div></div>
       <div class="title">{{curYearMonth}}</div>
@@ -50,6 +53,10 @@ export default {
     }
   },
   props: {
+    calLeftTitle: {
+      type: String,
+      required: false
+    },
     events: {
       type: Array,
       required: true

@@ -4,12 +4,14 @@
       :events="events"
       :calendar="calendarOptions"
       :selectedDay='selectedDayEvents.date'
+      :calLeftTitle="calLeftTitle"
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
     <cal-events
       :title="title"
       :dayEvents="selectedDayEvents"
+      :calDesc="calDesc"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
       <slot :showEvents="selectedDayEvents.events"></slot>
@@ -39,6 +41,8 @@ export default {
   },
   props: {
     title: String,
+    calLeftTitle: String,
+    calDesc: String,
     events: {
       type: Array,
       required: true,
@@ -155,7 +159,7 @@ export default {
     margin: 0 auto;
     .cal-wrapper{
       width: 50%;
-      padding: 100px 50px;
+      padding: 20px 50px;
       .date-num{
         line-height: 50px;
       }

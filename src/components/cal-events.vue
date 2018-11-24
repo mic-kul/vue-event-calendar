@@ -1,5 +1,8 @@
 <template>
   <div class="events-wrapper" :style="bgColor">
+    <div class="cal-desc">
+      {{calDesc}}
+    </div>
     <h2 class="date">
       {{dayEventsTitle}}
     </h2>
@@ -29,6 +32,10 @@ export default {
   },
   props: {
     title: String,
+    calDesc: {
+      type: String,
+      required: false,
+    },
     dayEvents: {
       type: Object,
       required: true
