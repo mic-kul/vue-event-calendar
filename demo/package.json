@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^2.5.3",
-    "vue-event-calendar": "^1.5.1"
+    "vue-event-calendar": "file:.."
   },
   "devDependencies": {
     "@babel/preset-env": "^7.0.0-beta.31",

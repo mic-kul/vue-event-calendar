@@ -155,24 +155,19 @@ export default {
 @icon-border-size: 1px;
 @media screen and (min-width: 768px) {
   .__vev_calendar-wrapper{
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
     .cal-wrapper{
-      width: 50%;
+      flex: 0 460px;
       padding: 20px 50px;
       .date-num{
         line-height: 50px;
       }
     }
     .events-wrapper{
-      width: 50%;
       background-color: @base-orange;
       color: @white;
       padding: 40px 45px;
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
+      flex: 600px;
     }
   }
 }
@@ -193,9 +188,10 @@ export default {
   }
 }
 .__vev_calendar-wrapper{
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+  // position: relative;
+  // overflow: hidden;
+  // width: 100%;
+  display: flex;
   *{
     box-sizing: border-box;
   }
@@ -212,6 +208,7 @@ export default {
     background: rgba(0,0,0,.2);
   }
   .cal-wrapper{
+    flex: 0 460px;
     .cal-header{
       position: relative;
       width: 100%;
@@ -316,6 +313,7 @@ export default {
   }
   .events-wrapper{
     border-radius: 10px;
+    flex: 600px;
     .cal-events{
       height: 95%;
       overflow-y: auto;
