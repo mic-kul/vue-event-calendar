@@ -381,6 +381,10 @@ export default {
       .date-num{
         line-height: 50px;
       }
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
     }
     .events-wrapper{
       background-color: @base-orange;
